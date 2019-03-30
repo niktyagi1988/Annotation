@@ -13,7 +13,7 @@ $ mvn clean install
 # Do Annotation Processing
 
 Add below maven dependency
-		<dependency>
+	<dependency>
             <groupId>com.citi.cpb.perf.annotation</groupId>
             <artifactId>annotation-processor</artifactId>
             <version>1.0-SNAPSHOT</version>
