@@ -1,0 +1,381 @@
+Apache Maven 3.0.4 (r1232337; 2012-01-17 14:14:56+0530)
+Maven home: E:\backup d\e\apache-maven-3.0.4
+Java version: 1.8.0_151, vendor: Oracle Corporation
+Java home: C:\Program Files\Java\jdk1.8.0_151\jre
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 7", version: "6.1", arch: "amd64", family: "dos"
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from E:\backup d\e\apache-maven-3.0.4\conf\settings.xml
+[DEBUG] Reading user settings from C:\Users\User\.m2\settings.xml
+[DEBUG] Using local repository at C:\Users\User\.m2\repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for C:\Users\User\.m2\repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project io.github.konohiroaki:simple-project:jar:1.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecyle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: io.github.konohiroaki:simple-project:jar:1.0-SNAPSHOT
+[DEBUG] Tasks:   [clean, compile]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building simple-project 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       io.github.konohiroaki:simple-project:1.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [compile]
+[DEBUG] Repositories (dependencies): [central (http://repo.maven.apache.org/maven2, releases)]
+[DEBUG] Repositories (plugins)     : [central (http://repo.maven.apache.org/maven2, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-clean-plugin:2.4.1:clean (default-clean)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <reportDirectory default-value="${project.reporting.outputDirectory}"/>
+  <skip default-value="false">${clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${clean.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:2.5:resources (default-resources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <escapeString>${maven.resources.escapeString}</escapeString>
+  <escapeWindowsPaths default-value="true">${maven.resources.escapeWindowsPaths}</escapeWindowsPaths>
+  <includeEmptyDirs default-value="false">${maven.resources.includeEmptyDirs}</includeEmptyDirs>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <overwrite default-value="false">${maven.resources.overwrite}</overwrite>
+  <project default-value="${project}"/>
+  <resources default-value="${project.resources}"/>
+  <session default-value="${session}"/>
+  <supportMultiLineFiltering default-value="false">${maven.resources.supportMultiLineFiltering}</supportMultiLineFiltering>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile (default-compile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <classpathElements default-value="${project.compileClasspathElements}"/>
+  <compileSourceRoots default-value="${project.compileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedSourcesDirectory default-value="${project.build.directory}/generated-sources/annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <outputFileName>${project.build.finalName}</outputFileName>
+  <projectArtifact default-value="${project.artifact}"/>
+  <session default-value="${session}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <source default-value="1.5">${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.5">${maven.compiler.target}</target>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] io.github.konohiroaki:simple-project:jar:1.0-SNAPSHOT
+[DEBUG]    io.github.konohiroaki:annotation-processor:jar:1.0-SNAPSHOT:compile
+[DEBUG]       sun.sdk:tools:jar:1.8.0:system
+[DEBUG]    org.apache.commons:commons-lang3:jar:3.6:compile
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ simple-project ---
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.version < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.* < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.repository < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.impl < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.collection < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.metadata < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.spi < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.graph < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.installation < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.transfer < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.deployment < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.resolution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:2.4.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:2.4.1:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:2.4.1, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:2.4.1:clean' with basic configurator -->
+[DEBUG]   (f) directory = D:\java-annotation-processing-examples-master\simple-project\target
+[DEBUG]   (f) excludeDefaultDirectories = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) followSymLinks = false
+[DEBUG]   (f) outputDirectory = D:\java-annotation-processing-examples-master\simple-project\target\classes
+[DEBUG]   (f) reportDirectory = D:\java-annotation-processing-examples-master\simple-project\target\site
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) testOutputDirectory = D:\java-annotation-processing-examples-master\simple-project\target\test-classes
+[DEBUG] -- end configuration --
+[INFO] Deleting D:\java-annotation-processing-examples-master\simple-project\target
+[INFO] Deleting file D:\java-annotation-processing-examples-master\simple-project\target\classes\Main.class
+[INFO] Deleting file D:\java-annotation-processing-examples-master\simple-project\target\classes\Demo.class
+[INFO] Deleting file D:\java-annotation-processing-examples-master\simple-project\target\classes\a.jar
+[INFO] Deleting directory D:\java-annotation-processing-examples-master\simple-project\target\classes
+[INFO] Deleting directory D:\java-annotation-processing-examples-master\simple-project\target
+[DEBUG] Skipping non-existing directory D:\java-annotation-processing-examples-master\simple-project\target\classes
+[DEBUG] Skipping non-existing directory D:\java-annotation-processing-examples-master\simple-project\target\test-classes
+[DEBUG] Skipping non-existing directory D:\java-annotation-processing-examples-master\simple-project\target\site
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ simple-project ---
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:jar:2.5:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]       junit:junit:jar:3.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:1.0:compile
+[DEBUG]       org.sonatype.plexus:plexus-build-api:jar:0.0.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.13:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.5
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.5
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.5
+[DEBUG]   Included: org.apache.maven.plugins:maven-resources-plugin:jar:2.5
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:1.0
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.13
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-resources-plugin:2.5:resources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:2.5, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[debug] execute contextualize
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.5:resources' with basic configurator -->
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = D:\java-annotation-processing-examples-master\simple-project\target\classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: io.github.konohiroaki:simple-project:1.0-SNAPSHOT @ D:\java-annotation-processing-examples-master\simple-project\pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: D:\java-annotation-processing-examples-master\simple-project\src\main\resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@3568f9d2
+[DEBUG]   (f) supportMultiLineFiltering = false
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {java.vendor=Oracle Corporation, env.SYSTEMROOT=C:\Windows, sun.java.launcher=SUN_STANDARD, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, env.PROMPT=$P$G, os.name=Windows 7, env.FP_NO_HOST_CHECK=NO, sun.boot.class.path=C:\Program Files\Java\jdk1.8.0_151\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_151\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_151\jre\classes, env.COMPUTERNAME=USER-PC, env.ALLUSERSPROFILE=C:\ProgramData, sun.desktop=windows, java.vm.specification.vendor=Oracle Corporation, java.runtime.version=1.8.0_151-b12, env.HOMEPATH=\Users\User, project.build.sourceEncoding=UTF-8, user.name=User, maven.build.version=Apache Maven 3.0.4 (r1232337; 2012-01-17 14:14:56+0530), env.WINDOWS_TRACING_FLAGS=3, env.PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Docker Toolbox;C:\Program Files\Java\jdk1.8.0_151\bin;E:\backup d\e\apache-maven-3.0.4\bin;E:\apache-ant-1.9.9\bin, user.language=en, env.WINDIR=C:\Windows, sun.boot.library.path=C:\Program Files\Java\jdk1.8.0_151\jre\bin, classworlds.conf=E:\backup d\e\apache-maven-3.0.4\bin\m2.conf, java.version=1.8.0_151, env.PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 2, GenuineIntel, user.timezone=Asia/Calcutta, env.TEMP=C:\Users\User\AppData\Local\Temp, sun.arch.data.model=64, env.WINDOWS_TRACING_LOGFILE=C:\BVTBin\Tests\installpackage\csilogfile.log, java.endorsed.dirs=C:\Program Files\Java\jdk1.8.0_151\jre\lib\endorsed, sun.cpu.isalist=amd64, env.HOMEDRIVE=C:, sun.jnu.encoding=Cp1252, file.encoding.pkg=sun.io, env.SYSTEMDRIVE=C:, file.separator=\, java.specification.name=Java Platform API Specification, java.class.version=52.0, user.country=US, java.home=C:\Program Files\Java\jdk1.8.0_151\jre, env.APPDATA=C:\Users\User\AppData\Roaming, env.PUBLIC=C:\Users\Public, java.vm.info=mixed mode, env.OS=Windows_NT, os.version=6.1, env.=::=::\, path.separator=;, java.vm.version=25.151-b12, user.variant=, env.USERPROFILE=C:\Users\User, env.JAVA_HOME=C:\Program Files\Java\jdk1.8.0_151, java.awt.printerjob=sun.awt.windows.WPrinterJob, env.TMP=C:\Users\User\AppData\Local\Temp, env.PROGRAMFILES=C:\Program Files, sun.io.unicode.encoding=UnicodeLittle, awt.toolkit=sun.awt.windows.WToolkit, user.script=, env.DOCKER_TOOLBOX_INSTALL_PATH=C:\Program Files\Docker Toolbox, user.home=C:\Users\User, env.COMMONPROGRAMFILES=C:\Program Files\Common Files, env.=EXITCODE=00000000, env.SESSIONNAME=Console, java.specification.vendor=Oracle Corporation, env.M2_HOME=E:\backup d\e\apache-maven-3.0.4, env.NUMBER_OF_PROCESSORS=4, java.library.path=C:\Program Files\Java\jdk1.8.0_151\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Docker Toolbox;C:\Program Files\Java\jdk1.8.0_151\bin;E:\backup d\e\apache-maven-3.0.4\bin;E:\apache-ant-1.9.9\bin;., java.vendor.url=http://java.oracle.com/, env.COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files, env.PSMODULEPATH=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\, env.CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher, env.MAVEN_CMD_LINE_ARGS=-X clean compile, java.vm.vendor=Oracle Corporation, maven.home=E:\backup d\e\apache-maven-3.0.4, java.runtime.name=Java(TM) SE Runtime Environment, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -X clean compile, java.class.path=E:\backup d\e\apache-maven-3.0.4\boot\plexus-classworlds-2.4.jar, env.PROGRAMW6432=C:\Program Files, maven.version=3.0.4, env.PROGRAMFILES(X86)=C:\Program Files (x86), env.MAVEN_JAVA_EXE="C:\Program Files\Java\jdk1.8.0_151\bin\java.exe", java.vm.specification.name=Java Virtual Machine Specification, env.LOGONSERVER=\\USER-PC, java.vm.specification.version=1.8, env.PROCESSOR_ARCHITECTURE=AMD64, env.COMMONPROGRAMW6432=C:\Program Files\Common Files, sun.cpu.endian=little, sun.os.patch.level=Service Pack 1, env.HOME=C:\Users\User, env.ANT_HOME=E:\apache-ant-1.9.9, env.PROCESSOR_REVISION=2502, java.io.tmpdir=C:\Users\User\AppData\Local\Temp\, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, env.PROGRAMDATA=C:\ProgramData, env.COMSPEC=C:\Windows\system32\cmd.exe, os.arch=amd64, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, java.ext.dirs=C:\Program Files\Java\jdk1.8.0_151\jre\lib\ext;C:\Windows\Sun\Java\lib\ext, env.=D:=D:\java-annotation-processing-examples-master\simple-project, env.LOCALAPPDATA=C:\Users\User\AppData\Local, user.dir=D:\java-annotation-processing-examples-master\simple-project, line.separator=
+, env.CLASSWORLDS_JAR="E:\backup d\e\apache-maven-3.0.4\boot\plexus-classworlds-2.4.jar", java.vm.name=Java HotSpot(TM) 64-Bit Server VM, env.PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC, env.ERROR_CODE=0, env.USERNAME=User, sun.stderr.encoding=cp437, file.encoding=Cp1252, env.USERDOMAIN=User-PC, java.specification.version=1.8, env.PROCESSOR_LEVEL=6, env.VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\}
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory D:\java-annotation-processing-examples-master\simple-project\src\main\resources
+excludes []
+includes []
+[INFO] skip non existing resourceDirectory D:\java-annotation-processing-examples-master\simple-project\src\main\resources
+[DEBUG] no use filter components
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ simple-project ---
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:jar:2.3.2:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]          org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-toolchain:jar:1.0:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:2.0.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:1.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-manager:jar:1.8.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-javac:jar:1.8.1:runtime
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:2.3.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:1.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:1.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:1.8.1
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-toolchain:jar:1.0
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:2.3.2, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile' with basic configurator -->
+[DEBUG]   (f) basedir = D:\java-annotation-processing-examples-master\simple-project
+[DEBUG]   (f) buildDirectory = D:\java-annotation-processing-examples-master\simple-project\target
+[DEBUG]   (f) classpathElements = [D:\java-annotation-processing-examples-master\simple-project\target\classes, C:\Users\User\.m2\repository\io\github\konohiroaki\annotation-processor\1.0-SNAPSHOT\annotation-processor-1.0-SNAPSHOT.jar, C:\Program Files\Java\jdk1.8.0_151\jre\..\lib\tools.jar, C:\Users\User\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar]
+[DEBUG]   (f) compileSourceRoots = [D:\java-annotation-processing-examples-master\simple-project\src\main\java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedSourcesDirectory = D:\java-annotation-processing-examples-master\simple-project\target\generated-sources\annotations
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = D:\java-annotation-processing-examples-master\simple-project\target\classes
+[DEBUG]   (f) outputFileName = simple-project-1.0-SNAPSHOT
+[DEBUG]   (f) projectArtifact = io.github.konohiroaki:simple-project:jar:1.0-SNAPSHOT
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@3568f9d2
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) source = 1.5
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) target = 1.5
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Source directories: [D:\java-annotation-processing-examples-master\simple-project\src\main\java]
+[DEBUG] Classpath: [D:\java-annotation-processing-examples-master\simple-project\target\classes
+ C:\Users\User\.m2\repository\io\github\konohiroaki\annotation-processor\1.0-SNAPSHOT\annotation-processor-1.0-SNAPSHOT.jar
+ C:\Program Files\Java\jdk1.8.0_151\jre\..\lib\tools.jar
+ C:\Users\User\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar]
+[DEBUG] Output directory: D:\java-annotation-processing-examples-master\simple-project\target\classes
+[DEBUG] Classpath:
+[DEBUG]  D:\java-annotation-processing-examples-master\simple-project\target\classes
+[DEBUG]  C:\Users\User\.m2\repository\io\github\konohiroaki\annotation-processor\1.0-SNAPSHOT\annotation-processor-1.0-SNAPSHOT.jar
+[DEBUG]  C:\Program Files\Java\jdk1.8.0_151\jre\..\lib\tools.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar
+[DEBUG] Source roots:
+[DEBUG]  D:\java-annotation-processing-examples-master\simple-project\src\main\java
+[DEBUG] Command line options:
+[DEBUG] -d D:\java-annotation-processing-examples-master\simple-project\target\classes -classpath D:\java-annotation-processing-examples-master\simple-project\target\classes;C:\Users\User\.m2\repository\io\github\konohiroaki\annotation-processor\1.0-SNAPSHOT\annotation-processor-1.0-SNAPSHOT.jar;C:\Program Files\Java\jdk1.8.0_151\jre\..\lib\tools.jar;C:\Users\User\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar; -sourcepath D:\java-annotation-processing-examples-master\simple-project\src\main\java; D:\java-annotation-processing-examples-master\simple-project\src\main\java\Demo.java D:\java-annotation-processing-examples-master\simple-project\src\main\java\Main.java -g -nowarn -target 1.5 -source 1.5 -encoding UTF-8
+[INFO] Compiling 2 source files to D:\java-annotation-processing-examples-master\simple-project\target\classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.096s
+[INFO] Finished at: Sat Mar 30 20:51:53 IST 2019
+[INFO] Final Memory: 11M/114M
+[INFO] ------------------------------------------------------------------------
