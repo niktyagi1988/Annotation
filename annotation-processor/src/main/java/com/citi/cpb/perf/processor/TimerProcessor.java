@@ -19,7 +19,6 @@ import javax.lang.model.element.TypeElement;
 
 @SupportedAnnotationTypes(value = {"com.citi.cpb.perf.annotation.AddTimer",
 								   "com.citi.cpb.perf.annotation.StartTimer"})
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class TimerProcessor extends AbstractProcessor {
 
     private Trees trees;
