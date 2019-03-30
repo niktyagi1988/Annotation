@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.citi.cpb.perf.annotation.AddTimer;
 import com.citi.cpb.perf.annotation.StartTimer;
+import com.sun.tools.javac.code.Type;
 import com.sun.tools.javac.model.JavacElements;
+import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.JCTree.JCAnnotation;
 import com.sun.tools.javac.tree.JCTree.JCBlock;
 import com.sun.tools.javac.tree.JCTree.JCMethodDecl;
@@ -30,19 +32,27 @@ public class TimerTranslator extends TreeTranslator {
         boolean startTimerAnnotation = false;
         List<JCAnnotation> annList =  methodDecl.mods.annotations;
         
-        for (JCAnnotation jcAnnotation : annList) {
-			if(jcAnnotation.getAnnotationType().type.toString().equals(AddTimer.class.getName())) {
-				addTimerAnnotation = true;
-			}else if(jcAnnotation.getAnnotationType().type.toString().equals(StartTimer.class.getName())) {
-				startTimerAnnotation = true;
-			}
-		}
-        
-        if (addTimerAnnotation) {
-            result = createAddMethodDeclaration(methodDecl);
-        }else if (startTimerAnnotation) {
-            result = createStartMethodDeclaration(methodDecl);
-        }
+        	if(annList != null) {
+        		for (JCAnnotation jcAnnotation : annList) {
+        			JCTree tr = jcAnnotation.getAnnotationType();
+        				if(tr != null) {
+        					Type type = tr.type;
+        						if(type != null) {
+        							if(type.toString().equals(AddTimer.class.getName())) {
+                        				addTimerAnnotation = true;
+                        			}else if(type.toString().equals(StartTimer.class.getName())) {
+                        				startTimerAnnotation = true;
+                        			}
+        						}
+        				}
+        		}
+                
+                if (addTimerAnnotation) {
+                    result = createAddMethodDeclaration(methodDecl);
+                }else if (startTimerAnnotation) {
+                    result = createStartMethodDeclaration(methodDecl);
+                }
+        	}
     }
 
     private JCMethodDecl createAddMethodDeclaration(JCMethodDecl methodDecl) {
