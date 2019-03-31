@@ -2,46 +2,68 @@ package com.citi.cpb.perf.util;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Stack;
+import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.citi.cpb.perf.vo.PerfStats;
+import com.citi.cpb.perf.vo.Stat;
 import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.model.JavacElements;
 
 public class Utility {
 
 	public static void analysisPerformanceAsync(final ConcurrentHashMap<Long,ArrayList<PerfStats>> map, final Long threadId) {
-		ArrayList<PerfStats> list = map.get(threadId);
-		Map<String,Long> pointerMap = new LinkedHashMap<String, Long>();
-		Map<String,String> dashMap = new LinkedHashMap<String, String>();
-		List<String> respList = new ArrayList<String>();
-		StringBuilder builder = new StringBuilder();
-		String className = "";
-		String oldClassName = "";
+		final Map<String,Stat> statMap = new LinkedHashMap<String, Stat>();
 		
-		for (PerfStats perfStats : list) {
+		new Thread(new Runnable() {
 			
-			className = perfStats.getClassName()+"."+perfStats.getMethodName();
-			
-			if(pointerMap.containsKey(className)) {
-				respList.set(respList.indexOf(className),dashMap.get(className).toString()+">> "+className+" - "+new Float(perfStats.getTime()-pointerMap.get(className))/1000+" seconds");
-				builder = new StringBuilder();
-			}else {
-				respList.add(className);
-				pointerMap.put(className, perfStats.getTime());
+			public void run() {
+				Stack<String> stack = new Stack<String>();
+				Map<String,Long> pointerMap = new LinkedHashMap<String, Long>();
+				String className = "";
+				
+				for (PerfStats perfStats : map.get(threadId)) {
+					className = perfStats.getClassName()+"."+perfStats.getMethodName();
+
+					if(pointerMap.containsKey(className)) {
+						statMap.get(className).setAfterTime(perfStats.getTime());
+						stack.pop();
+					}else {
+						statMap.put(className, new Stat(className,perfStats.getTime(), null, null));
+						if(stack.size() != 0 )
+							statMap.get(className).setParentMethodName(stack.get(stack.size()-1));
+						stack.push(className);
+						pointerMap.put(className, perfStats.getTime());
+					}
+				}
+				Set<Entry<String,Stat>> set =  statMap.entrySet();
+				StringBuffer buffer = new StringBuffer();
+				
+				for (Entry<String, Stat> entry : set) {
+					Stat stat = entry.getValue();
+					String parentName = stat.getParentMethodName();
+					buffer = new StringBuffer("-----");
+					
+					if(parentName == null) {
+						System.out.println(buffer.toString()+">"+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
+					}else {
+						buffer.append("-----");
+						parentName = statMap.get(parentName).getParentMethodName();
+						if(parentName != null) {
+							buffer.append("-----");
+							parentName = statMap.get(parentName).getParentMethodName();
+							if(parentName != null) {
+								buffer.append("-----");
+							}
+						}
+						System.out.println(buffer.toString()+">"+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
+					}
+				}
 			}
-			
-			if(!oldClassName.equals(className)) {
-				builder.append("------");
-				dashMap.put(className, builder.toString());
-			}
-			oldClassName = className;
-		}
-		for (int i = 0; i <= respList.size()-1; i++) {
-			System.out.println(respList.get(i));
-		}
+		}).start();
 	}
 	
 	public static Symbol.ClassSymbol getClassSymbol(JavacElements elements,Class<?> clazz) {

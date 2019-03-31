@@ -2,7 +2,7 @@ package com.citi.cpb.perf.translator;
 
 import java.util.List;
 
-import com.citi.cpb.perf.translator.util.StatementCreator;
+import com.citi.cpb.perf.translator.helper.StatementCreator;
 import com.citi.cpb.perf.util.PerfManager;
 import com.citi.cpb.perf.util.Utility;
 import com.sun.tools.javac.model.JavacElements;

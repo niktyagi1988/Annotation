@@ -31,7 +31,6 @@ public class PerfManager {
 		try {
 			map.get(threadId).add(new PerfStats(className, methodName, time));
 			Utility.analysisPerformanceAsync(map, threadId);
-			map.remove(threadId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
