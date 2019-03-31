@@ -46,7 +46,6 @@ public class TimerTranslator extends TreeTranslator {
         						}
         				}
         		}
-                
                 if (addTimerAnnotation) {
                     result = createAddMethodDeclaration(methodDecl);
                 }else if (startTimerAnnotation) {
@@ -56,8 +55,10 @@ public class TimerTranslator extends TreeTranslator {
     }
 
     private JCMethodDecl createAddMethodDeclaration(JCMethodDecl methodDecl) {
+    	
     	AddTimerTranslator obj = new AddTimerTranslator(maker,elements);
-        JCBlock body = obj.createBody(methodDecl.body);
+        JCBlock body = obj.createBody(methodDecl);
+        
         return maker.MethodDef(methodDecl.mods, methodDecl.name,
                                methodDecl.restype, methodDecl.typarams,
                                methodDecl.params, methodDecl.thrown,
@@ -65,15 +66,14 @@ public class TimerTranslator extends TreeTranslator {
     }
     
     private JCMethodDecl createStartMethodDeclaration(JCMethodDecl methodDecl) {
+    	
     	StartTimerTranslator obj = new StartTimerTranslator(maker,elements);
-        JCBlock body = obj.createBody(methodDecl.body);
+        JCBlock body = obj.createBody(methodDecl);
         
-        JCMethodDecl meth = maker.MethodDef(methodDecl.mods, methodDecl.name,
-                methodDecl.restype, methodDecl.typarams,
-                methodDecl.params, methodDecl.thrown,
-                body, methodDecl.defaultValue);
-        
-        return meth;
+        return maker.MethodDef( methodDecl.mods, methodDecl.name,
+				                methodDecl.restype, methodDecl.typarams,
+				                methodDecl.params, methodDecl.thrown,
+				                body, methodDecl.defaultValue);
     }
 
     

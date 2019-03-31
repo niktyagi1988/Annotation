@@ -33,7 +33,6 @@ public class TimerProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnvironment) {
         if (!roundEnvironment.processingOver()) {
             Set<? extends Element> elements = roundEnvironment.getRootElements();
-            
             for (Element element : elements) {
             	JCTree tree = (JCTree) trees.getTree(element);
             	tree.accept(visitor);

@@ -5,14 +5,12 @@ public class PerfStats {
 	private String className;
 	private String methodName;
 	private Long time;
-	private int lineNo;
 	
-	public PerfStats(String className, String methodName, int lineNo, Long time) {
+	public PerfStats(String className, String methodName, Long time) {
 		super();
 		this.className = className;
 		this.methodName = methodName;
 		this.time = time;
-		this.lineNo = lineNo;
 	}
 	public String getClassName() {
 		return className;
@@ -32,15 +30,8 @@ public class PerfStats {
 	public void setMethodName(String methodName) {
 		this.methodName = methodName;
 	}
-	public int getLineNo() {
-		return lineNo;
-	}
-	public void setLineNo(int lineNo) {
-		this.lineNo = lineNo;
-	}
 	@Override
 	public String toString() {
-		return "PerfStats [className=" + className + ", methodName=" + methodName + ", time=" + time + ", lineNo="
-				+ lineNo + "]";
+		return "PerfStats [className=" + className + ", methodName=" + methodName + ", time=" + time + "]";
 	}
 }

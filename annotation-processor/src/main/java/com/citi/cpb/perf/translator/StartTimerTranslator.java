@@ -2,11 +2,12 @@ package com.citi.cpb.perf.translator;
 
 import java.util.List;
 
+import com.citi.cpb.perf.translator.util.StatementCreator;
 import com.citi.cpb.perf.util.Utility;
-import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.model.JavacElements;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.JCTree.JCBlock;
+import com.sun.tools.javac.tree.JCTree.JCMethodDecl;
 import com.sun.tools.javac.tree.JCTree.JCMethodInvocation;
 import com.sun.tools.javac.tree.JCTree.JCReturn;
 import com.sun.tools.javac.tree.JCTree.JCStatement;
@@ -24,8 +25,10 @@ public class StartTimerTranslator {
 		this.elements = elements;
 	}
 
-	public JCBlock createBody(JCBlock oldBody) {
-        ListBuffer<JCTree.JCStatement> list = new ListBuffer<>();
+	public JCBlock createBody(JCMethodDecl methodDecl) {
+		
+		JCBlock oldBody = methodDecl.body;
+		ListBuffer<JCTree.JCStatement> list = new ListBuffer<>();
         List<JCTree.JCStatement> statements = oldBody.getStatements();
         int counter = 0;
         int start = 0;
@@ -33,12 +36,12 @@ public class StartTimerTranslator {
         
         for (JCStatement statement : statements) {
         	if (counter == start) {
-                list.add(startTimer());
+                list.add(startTimer(methodDecl));
             }
         	
         	if(statement instanceof JCReturn) {
         		flag = true;
-        		list.add(stopTimer());
+        		list.add(stopTimer(methodDecl));
         	}
         	
         	list.add(oldBody.stats.get(counter));
@@ -46,96 +49,36 @@ public class StartTimerTranslator {
 		}
         
         if(!flag)
-        	list.add(stopTimer());
+        	list.add(stopTimer(methodDecl));
         
         return maker.Block(1, list.toList());
     }
 
-	private JCStatement startTimer() {
+	private JCStatement startTimer(JCMethodDecl methodDecl) {
 		
-		JCMethodInvocation thread = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.Ident(elements.getName("Thread")),elements.getName("currentThread")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation id = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(thread,elements.getName("getId")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation systemTime = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.Ident(elements.getName("System")),elements.getName("currentTimeMillis")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation current = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-				maker.Select(maker.Ident(elements.getName("Thread")),elements.getName("currentThread")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation stack = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(current, elements.getName("getStackTrace")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
     	JCMethodInvocation utilityTime = maker.Apply(
 				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.QualIdent(getClassSymbol(Utility.class)),elements.getName("startTimer")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>of(id,stack,systemTime));
+                maker.Select(maker.QualIdent(Utility.getClassSymbol(elements,Utility.class)),elements.getName("startTimer")),
+                com.sun.tools.javac.util.List.<JCTree.JCExpression>of(StatementCreator.getThreadId(maker, elements),
+                													  StatementCreator.getClassName(maker, elements),
+                													  StatementCreator.getMethodName(maker, methodDecl),
+                													  StatementCreator.getSystemTime(maker, elements)));
      
        return maker.Exec(utilityTime);
     }
 
-    private JCStatement stopTimer() {
-    	
-    	JCMethodInvocation thread = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.Ident(elements.getName("Thread")),elements.getName("currentThread")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation id = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(thread,elements.getName("getId")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation systemTime = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.Ident(elements.getName("System")),elements.getName("currentTimeMillis")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation current = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-				maker.Select(maker.Ident(elements.getName("Thread")),elements.getName("currentThread")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
-    	
-    	JCMethodInvocation stack = maker.Apply(
-				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(current, elements.getName("getStackTrace")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>nil());
+    private JCStatement stopTimer(JCMethodDecl methodDecl) {
     	
     	JCMethodInvocation utilityTime = maker.Apply(
 				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.QualIdent(getClassSymbol(Utility.class)),elements.getName("endTimer")),
-                com.sun.tools.javac.util.List.<JCTree.JCExpression>of(id,stack,systemTime));
+                maker.Select(maker.QualIdent(Utility.getClassSymbol(elements,Utility.class)),elements.getName("endTimer")),
+                com.sun.tools.javac.util.List.<JCTree.JCExpression>of(StatementCreator.getThreadId(maker, elements),
+                													  StatementCreator.getClassName(maker, elements),
+                													  StatementCreator.getMethodName(maker, methodDecl),
+                													  StatementCreator.getSystemTime(maker, elements)));
      
        return maker.Exec(utilityTime);
     }
 
-    private Symbol.ClassSymbol getClassSymbol(Class<?> clazz) {
-        return elements.getTypeElement(clazz.getName());
-    }
-
-    @SuppressWarnings("unused")
-	private Symbol findMember(Class<?> clazz, String name) {
-    	
-    	List<Symbol> symbolList = getClassSymbol(clazz).getEnclosedElements();
-    		for (Symbol symbol : symbolList) {
-				if(symbol.getSimpleName().toString().equals(name))
-				{
-					return symbol;
-				}
-			}
-    	return null;
-    }
 	
 }
