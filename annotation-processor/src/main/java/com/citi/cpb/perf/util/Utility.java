@@ -40,11 +40,12 @@ public class Utility {
 					}
 				}
 				Set<Entry<String,PrintStat>> set =  statMap.entrySet();
-				
+				System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   Performance Start  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 				for (Entry<String, PrintStat> entry : set) {
 					PrintStat stat = entry.getValue();
-					System.out.println(getDash(statMap, stat.getMethodName())+">"+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
+					System.out.println(getDash(statMap, stat.getMethodName())+"> "+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
 				}
+				System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   Performance End  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 			}
 		}).start();
 	}

@@ -8,6 +8,7 @@ import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.JCTree.JCLiteral;
 import com.sun.tools.javac.tree.JCTree.JCMethodDecl;
 import com.sun.tools.javac.tree.JCTree.JCMethodInvocation;
+import com.sun.tools.javac.tree.JCTree.JCVariableDecl;
 import com.sun.tools.javac.tree.TreeMaker;
 
 public class StatementCreator {
@@ -60,7 +61,14 @@ public class StatementCreator {
 	
 	
 	public static JCLiteral getMethodName(final TreeMaker maker,final JCMethodDecl methodDecl) {
-		return maker.Literal(methodDecl.name+"("+methodDecl.params+")");
+		StringBuilder param = new StringBuilder("");
+		if(methodDecl.params != null) {
+			for (JCVariableDecl var : methodDecl.params) {
+				param.append(" ").append(var.toString().replaceAll("\n", "").replaceAll("\r", ""));
+			}
+		}
+		
+		return maker.Literal(methodDecl.name+"("+param+")");
 	}
 	
 	
