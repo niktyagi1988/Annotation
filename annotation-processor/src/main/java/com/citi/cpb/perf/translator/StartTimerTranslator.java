@@ -3,6 +3,7 @@ package com.citi.cpb.perf.translator;
 import java.util.List;
 
 import com.citi.cpb.perf.translator.util.StatementCreator;
+import com.citi.cpb.perf.util.PerfManager;
 import com.citi.cpb.perf.util.Utility;
 import com.sun.tools.javac.model.JavacElements;
 import com.sun.tools.javac.tree.JCTree;
@@ -58,7 +59,7 @@ public class StartTimerTranslator {
 		
     	JCMethodInvocation utilityTime = maker.Apply(
 				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.QualIdent(Utility.getClassSymbol(elements,Utility.class)),elements.getName("startTimer")),
+                maker.Select(maker.QualIdent(Utility.getClassSymbol(elements,PerfManager.class)),elements.getName("startTimer")),
                 com.sun.tools.javac.util.List.<JCTree.JCExpression>of(StatementCreator.getThreadId(maker, elements),
                 													  StatementCreator.getClassName(maker, elements),
                 													  StatementCreator.getMethodName(maker, methodDecl),
@@ -71,7 +72,7 @@ public class StartTimerTranslator {
     	
     	JCMethodInvocation utilityTime = maker.Apply(
 				com.sun.tools.javac.util.List.<JCTree.JCExpression>nil(),
-                maker.Select(maker.QualIdent(Utility.getClassSymbol(elements,Utility.class)),elements.getName("endTimer")),
+                maker.Select(maker.QualIdent(Utility.getClassSymbol(elements,PerfManager.class)),elements.getName("endTimer")),
                 com.sun.tools.javac.util.List.<JCTree.JCExpression>of(StatementCreator.getThreadId(maker, elements),
                 													  StatementCreator.getClassName(maker, elements),
                 													  StatementCreator.getMethodName(maker, methodDecl),
