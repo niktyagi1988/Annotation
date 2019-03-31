@@ -3,9 +3,9 @@ package com.citi.cpb.perf.util;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
-import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.citi.cpb.perf.vo.PerfStats;
@@ -40,30 +40,25 @@ public class Utility {
 					}
 				}
 				Set<Entry<String,PrintStat>> set =  statMap.entrySet();
-				StringBuffer buffer = new StringBuffer();
 				
 				for (Entry<String, PrintStat> entry : set) {
 					PrintStat stat = entry.getValue();
-					String parentName = stat.getParentMethodName();
-					buffer = new StringBuffer("-----");
-					
-					if(parentName == null) {
-						System.out.println(buffer.toString()+">"+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
-					}else {
-						buffer.append("-----");
-						parentName = statMap.get(parentName).getParentMethodName();
-						if(parentName != null) {
-							buffer.append("-----");
-							parentName = statMap.get(parentName).getParentMethodName();
-							if(parentName != null) {
-								buffer.append("-----");
-							}
-						}
-						System.out.println(buffer.toString()+">"+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
-					}
+					System.out.println(getDash(statMap, stat.getMethodName())+">"+stat.getMethodName() + " " + new Float(stat.getAfterTime() - stat.getBeforeTime())/1000 + "seconds");
 				}
 			}
 		}).start();
+	}
+	
+	public static StringBuffer getDash(Map<String,PrintStat> statMap,String className) {
+		StringBuffer buffer = new StringBuffer("----------");
+		String parentName = statMap.get(className).getParentMethodName();
+		
+		if(parentName == null)
+			return buffer;
+		if(parentName != null) {
+			buffer.append(getDash(statMap, parentName));
+		}
+		return buffer;
 	}
 	
 	public static Symbol.ClassSymbol getClassSymbol(JavacElements elements,Class<?> clazz) {
