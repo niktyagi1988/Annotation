@@ -9,14 +9,14 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.citi.cpb.perf.vo.PerfStats;
-import com.citi.cpb.perf.vo.Stat;
+import com.citi.cpb.perf.vo.PrintStat;
 import com.sun.tools.javac.code.Symbol;
 import com.sun.tools.javac.model.JavacElements;
 
 public class Utility {
 
 	public static void analysisPerformanceAsync(final ConcurrentHashMap<Long,ArrayList<PerfStats>> map, final Long threadId) {
-		final Map<String,Stat> statMap = new LinkedHashMap<String, Stat>();
+		final Map<String,PrintStat> statMap = new LinkedHashMap<String, PrintStat>();
 		
 		new Thread(new Runnable() {
 			
@@ -32,18 +32,18 @@ public class Utility {
 						statMap.get(className).setAfterTime(perfStats.getTime());
 						stack.pop();
 					}else {
-						statMap.put(className, new Stat(className,perfStats.getTime(), null, null));
+						statMap.put(className, new PrintStat(className,perfStats.getTime(), null, null));
 						if(stack.size() != 0 )
 							statMap.get(className).setParentMethodName(stack.get(stack.size()-1));
 						stack.push(className);
 						pointerMap.put(className, perfStats.getTime());
 					}
 				}
-				Set<Entry<String,Stat>> set =  statMap.entrySet();
+				Set<Entry<String,PrintStat>> set =  statMap.entrySet();
 				StringBuffer buffer = new StringBuffer();
 				
-				for (Entry<String, Stat> entry : set) {
-					Stat stat = entry.getValue();
+				for (Entry<String, PrintStat> entry : set) {
+					PrintStat stat = entry.getValue();
 					String parentName = stat.getParentMethodName();
 					buffer = new StringBuffer("-----");
 					

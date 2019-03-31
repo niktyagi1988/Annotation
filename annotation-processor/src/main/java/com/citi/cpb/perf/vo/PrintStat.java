@@ -1,13 +1,13 @@
 package com.citi.cpb.perf.vo;
 
-public class Stat {
+public class PrintStat {
 
 	private String methodName;
 	private Long beforeTime;
 	private Long afterTime;
 	private String parentMethodName;
 	
-	public Stat(String methodName, Long beforeTime, Long afterTime, String parentMethodName) {
+	public PrintStat(String methodName, Long beforeTime, Long afterTime, String parentMethodName) {
 		super();
 		this.methodName = methodName;
 		this.beforeTime = beforeTime;
