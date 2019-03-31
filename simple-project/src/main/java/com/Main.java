@@ -5,6 +5,7 @@ import com.citi.cpb.perf.annotation.StartTimer;
 
 public class Main {
 
+	@AddTimer
 	public void print(int a,int b,int c)
     {
 		System.out.println("A : "+a+" , B : "+b+" , C : "+c  );
@@ -39,11 +40,16 @@ public class Main {
     	return res;
     }
 	
+	@AddTimer
+	void demo() {
+		System.out.println("Hello World!!");
+	}
+	
     @StartTimer
     public static void main(String[] args) throws InterruptedException {
       Main main = new Main();
       main.addTwoNumber(1, 2);
-      
+      main.demo();
     }
    
 }
